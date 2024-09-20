@@ -16,8 +16,6 @@ const resolvers = {
     hello: (_, { message }) => {
         return `¡Hola, ${message}! Un saludo por parte del profe `;
       },
-  },
-  Query: {
     helloJuanJose: (_, { message }) => {
         return `¡Hola, ${message}! Un saludo por parte de juan jose `;
       },
