@@ -7,6 +7,7 @@ const typeDefs = gql`
   type Query {
     hello(message: String!): String
     helloJuanJose(message: String!): String
+    helloJuanDavid(message: String!): String
   }
 `;
 
@@ -18,6 +19,9 @@ const resolvers = {
       },
     helloJuanJose: (_, { message }) => {
         return `¡Hola, ${message}! Un saludo por parte de juan jose `;
+      },
+    helloJuanDavid: (_, { message }) => {
+        return `¡Hola, ${message}! Un saludo por parte de Juan David `;
       },
   },
 };
@@ -36,7 +40,7 @@ async function startApolloServer() {
   server.applyMiddleware({ app, path: '/graphql' });
 
   // Sirve la aplicación de React desde la carpeta "saludofront-app"
-   const reactAppPath = path.join(__dirname, 'saludofront-app', 'dist');
+  const reactAppPath = path.join(__dirname, 'saludofront-app', 'dist');
     app.use(express.static(reactAppPath));
     app.get('*', (req, res) => {
     res.sendFile(path.join(reactAppPath, 'index.html'));
